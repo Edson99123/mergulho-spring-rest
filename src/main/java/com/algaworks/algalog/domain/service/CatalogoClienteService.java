@@ -17,6 +17,12 @@ public class CatalogoClienteService {
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
+	
+	public Cliente buscar(Long cliente_id) {
+		return clienteRepository.findById(cliente_id)
+				.orElseThrow(() -> new NegocioException("Cliente não enontrado"));
+	}
+	
 	@Transactional
 	public Cliente salvar(Cliente cliente) {
 		boolean emailEmUso = clienteRepository.findByEmail(cliente.getEmail())
@@ -33,6 +39,8 @@ public class CatalogoClienteService {
 	public void excluir(Long clienteId) {
 		clienteRepository.deleteById(clienteId);
 	}
+	
+	
 	
 	
 	
