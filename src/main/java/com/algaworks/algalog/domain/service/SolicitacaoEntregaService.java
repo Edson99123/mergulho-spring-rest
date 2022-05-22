@@ -20,7 +20,7 @@ public class SolicitacaoEntregaService {
 	
 	@Transactional
 	public Entrega solicitar(Entrega entrega) {
-		entrega.setStatusEntrega(StatusEntrega.PENDENTE);
+		entrega.setStatus(StatusEntrega.PENDENTE);
 		entrega.setDataPedido(LocalDateTime.now());
 		
 		
